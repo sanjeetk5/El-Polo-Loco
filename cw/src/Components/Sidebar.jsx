@@ -1,6 +1,8 @@
 import React, { ReactNode } from "react";
 import Sliders from "./Sliders";
 import Footer from "./Footer";
+import Slidercard from "./Slidercard";
+import { Link as RouterLink } from "react-router-dom";
 import {
   IconButton,
   Avatar,
@@ -26,6 +28,9 @@ import {
   Image,
   View,
   ImageBackground,
+  Button,
+  useColorMode,
+  Heading,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -36,30 +41,50 @@ import {
   FiMenu,
   FiBell,
   FiChevronDown,
+ 
 } from "react-icons/fi";
+
+import {  BsPersonCircle } from "react-icons/bs"
 import { IconType } from "react-icons";
 import { ReactText } from "react";
-
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import Picwithtext from "./Picwithtext";
 // interface LinkItemProps {
 //   name: string;
 //   icon: IconType;
 // }
 const LinkItems = [
-  { name: "Home", icon: FiHome },
-  { name: "Trending", icon: FiTrendingUp },
-  { name: "Explore", icon: FiCompass },
-  { name: "Favourites", icon: FiStar },
-  { name: "Settings", icon: FiSettings },
+  { name: "Home", icon: FiHome, path: "/" },
+  { name: "Our Food", icon: FiTrendingUp, path: "/product" },
+  { name: "Our Story", icon: FiCompass, path: "/story" },
+  { name: "Careers", icon: FiStar, path: "/career" },
+  { name: "Franchising", icon: FiSettings, path: "/franchising" },
 ];
+
+// const NavLink = ({ children }) => (
+//   <Link
+//     px={2}
+//     py={1}
+//     rounded={"md"}
+//     _hover={{
+//       textDecoration: "none",
+//       bg: useColorModeValue("gray.200", "gray.700"),
+//     }}
+//     href={"#"}
+//   >
+//     {children}
+//   </Link>
+// );
 
 export default function SidebarWithHeader({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+    <Box bg={useColorModeValue("gray.100", "gray.900")}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
       />
+
       <Drawer
         autoFocus={false}
         isOpen={isOpen}
@@ -76,14 +101,10 @@ export default function SidebarWithHeader({ children }) {
 
       {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
+
       <Box ml={{ base: 0, md: 60 }} p="0">
         {children}
-        <Sliders />
-        <Image src="https://www.elpolloloco.com/content/img/chicken-leg_1280.webp" />
-        <Image src="https://www.elpolloloco.com/content/img/our-food_1280.webp" />
-        <Image src="https://www.elpolloloco.com/content/img/catering_768.webp" width={"100%"}/>
       </Box>
-      <Footer />
     </Box>
   );
 }
@@ -109,13 +130,11 @@ const SidebarContent = ({ onClose, ...rest }) => {
 
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
-      {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
-          {link.name}
-        </NavItem>
+      {LinkItems.map((e) => (
+        <RouterLink key={e.path} to={e.path}>
+          <Heading key={e.path}>{e.name}</Heading>
+        </RouterLink>
       ))}
-
-     
     </Box>
   );
 };
@@ -164,6 +183,7 @@ const NavItem = ({ icon, children, ...rest }) => {
 //   onOpen: () => void;
 // }
 const MobileNav = ({ onOpen, ...rest }) => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -192,12 +212,18 @@ const MobileNav = ({ onOpen, ...rest }) => {
       />
 
       <HStack spacing={{ base: "0", md: "6" }}>
-        <IconButton
+        {/* <IconButton
           size="lg"
           variant="ghost"
           aria-label="open menu"
           icon={<FiBell />}
-        />
+        /> */}
+
+        <Button onClick={toggleColorMode}>
+          {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+        </Button>
+
+        <Button>Order Now</Button>
         <Flex alignItems={"center"}>
           <Menu>
             <MenuButton
@@ -206,12 +232,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
               _focus={{ boxShadow: "none" }}
             >
               <HStack>
-                <Avatar
-                  size={"sm"}
-                  src={
-                    "https://images.unsplash.com/photo-1619946794135-5bc917a27793?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
-                  }
-                />
+              <BsPersonCircle/>
                 <VStack
                   display={{ base: "none", md: "flex" }}
                   alignItems="flex-start"

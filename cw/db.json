@@ -1,0 +1,178 @@
+{
+    "foods": [
+      {
+        "id" : "1",
+        "name": "Double Tostadas",
+        "quantity": "(1-2 of 2)",
+        "image": "https://olo-images-live.imgix.net/b4/b46a69c0d0324089b2a83061b48b83e3.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=61887e85ed8ddf9ad97f1c360eccf16d",
+        "category": "NEW! Double Shredded Beef Tostada Salad",
+        "calories": "930 Calories",
+        "price": "$4.99",
+        "description": "House-made crisp tostada shell filled with a double portion of succule..."
+      },
+      {
+        "id" : "2",
+        "name": "Family Chicken Meals",
+        "quantity": "(1-4 of 5)",
+        "image": "https://olo-images-live.imgix.net/4e/4e5cefa07c474299a523a23723b2bfcb.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=587c00f9282161c5d8ddd49a3f0e7d5f",
+        "category": "8pc Family Feast",
+        "calories": "2750-4600 Calories",
+        "price": "$4.99",
+        "description": "8 pieces of our famous fire-grilled chicken, large avocado family sala..."
+      },
+      {
+        "id" : "3",
+        "name": "Nachos",
+        "qunatity": "(1 of 1)",
+        "image": "https://olo-images-live.imgix.net/3c/3cf87182f2a34676b15c80752452f75b.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=dee0806fbd39f966e9c0f6ae4108eb9d",
+        "category": "Shredded Chicken Nachos",
+        "calories": "1060 Calories",
+        "price": "$4.99",
+        "description": "Fresh tortilla chips topped with tender shredded chicken in a mild roa..."
+      },
+      {
+        "id" : "4",
+        "name": "Tostadas",
+        "quantity": "(1-2 of 2)",
+        "image": "https://olo-images-live.imgix.net/9e/9e9cbe740013458e8f33f930759ef37a.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=1d41290fcb26047463a4f36cc6967325",
+        "category": "Double Chicken Tostada Salad",
+        "calories": "990 Calories",
+        "price": "$4.99",
+        "description": "We fill a tostada shell with shredded lettuce, pinto beans, rice, shre..."
+      },
+      {
+        "id" : "5",
+        "name": "Fire-Grilled Combos",
+        "quantity": "(1-4 of 4)",
+        "description": "Chicken thigh fire-grilled, chopped and added to slow-simmered pinto b...",
+        "image": "https://olo-images-live.imgix.net/8e/8eaa1b394988464b95437565228406a3.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=72399b99d55bce3c3d0175a226ba2977",
+        "category": "Original Pollo Bowl Combo",
+        "price": "$4.99",
+        "calories": "680-1070 Calories"
+      },
+      {
+        "id" : "6",
+        "name": "Burritos",
+        "quantity": "(1-4 of 7)",
+        "image": "https://olo-images-live.imgix.net/8e/8e149b55c79c4bc8a0737c7d6e3a4777.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=ce2ad8c25ab8bee9aa20b10cdc3ab41b",
+        "category": "Queso Blanco Burrito",
+        "calories": "870 Calories",
+        "price": "$4.99",
+        "description": "The California Queso Burrito has tender pieces of our famous fire-gril..."
+      },
+      {
+        "id" : "7",
+        "name": "Quesadilla",
+        "quantity": "(1-4 of 4)",
+        "image": "https://olo-images-live.imgix.net/1c/1cc62c0c9c7e4e86b8340437f7de4165.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=d57e77451f7941c3bc6db6e53372d605",
+        "category": "Shredded Chicken Quesadilla",
+        "calories": "600-900 Calories",
+        "price": "$4.99",
+        "description": "Warm flour tortilla filled with tender shredded chicken in a mild roas..."
+      },
+      {
+        "id" : "8",
+        "name": "Street Tacos",
+        "quantity": "(1-3 of 3)",
+        "image": "https://olo-images-live.imgix.net/9f/9fc7952d771c49d9817b0fedee020e3c.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=304e2527bc9bce44b15bb7a8e37d49ab",
+        "category": "Chicken Taco al Carbon",
+        "calories": "170 Calories",
+        "price": "$4.99",
+        "description": "Chopped citrus-marinated fire-grilled thigh meat, diced onion, and cil..."
+      },
+      {
+        "id" : "9",
+        "name": "Bowls",
+        "quantity": "(1-3 of 3)",
+        "image": "https://olo-images-live.imgix.net/53/53ddba0cd96f4d01ad59454394610ec0.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=ddcc19e1338f8f9a4571b63beba269c7",
+        "category": "Original Pollo Bowl®",
+        "price": "$4.99",
+        "calories": "580 Calories",
+        "description": "Our chicken is fire-grilled to perfection then chopped and added to sl..."
+      },
+      {
+        "id" : "10",
+        "name": "Pollo Fit Menu",
+        "quantity": "(1-4 of 4)",
+        "image": "https://olo-images-live.imgix.net/e0/e0f46214e61741fdac636599f59fa25f.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=f4dbacc8992e107414932f9b36a36b4b",
+        "category": "Double Chicken Avocado Salad",
+        "calories": "350-670 Calories",
+        "price": "$4.99",
+        "description": "Lettuce topped with a double portion of our fire-grilled chopped chick..."
+      },
+      {
+        "id" : "11",
+        "name": "Starters",
+        "quantity": "(1-4 of 4)",
+        "image": "https://olo-images-live.imgix.net/6b/6b7fcc50ac86445abaed921bd8faf94d.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=bcb599bc9cedfddaff47cd8a58f4c2ca",
+        "category": "Regular Chips & Guacamole",
+        "price": "$4.99",
+        "calories": "990 Calories",
+        "description": "What's better than our white corn tortilla chips, hand salted and made..."
+      },
+      {
+        "id" : "12",
+        "name": "Extras",
+        "quantity": "(1-4 of 12)",
+        "image": "https://olo-images-live.imgix.net/e5/e55e74db329a439cbf06a814f47c3cab.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=08b0266e460f1f5183337d0af4be2e85",
+        "category": "1 Pack of Tortillas (2)",
+        "price": "$3.29",
+        "calories": "100-190 Calories",
+        "description": "Enjoy great value rolled into a flour tortilla filled with rice, pinto..."
+      },
+      {
+        "id" : "13",
+        "name": "Sides",
+        "quantity": "(1-4 of 8)",
+        "image": "https://olo-images-live.imgix.net/89/89db4f5ef9f9494fa110cda1c99e37e8.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=c9a71c08cac4773581f1f642fd11245f",
+        "category": "Rice",
+        "price": "$3.29",
+        "calories": "160-380 Calories",
+        "description": "This is no ordinary side of rice, it’s enriched long-grain rice season..."
+      },
+      {
+        "id" : "14",
+        "name": "Desserts",
+        "quantity": "(1-2 of 2)",
+        "image": "https://olo-images-live.imgix.net/1d/1d3a102f849a481397c376d1ef857e71.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=d5a379b652b912afb34082a786b1624b",
+        "category": "Two Churros",
+        "price": "$1.69",
+        "calories": "300 Calories",
+        "description": "Why eat just one Churro when you can get double the deliciousness but ..."
+      },
+      {
+        "id" : "15",
+        "name": "Kids Meals",
+        "quantity": "(1-2 of 2)",
+  
+        "image": "https://olo-images-live.imgix.net/fc/fc101657b0b04294ae135ae2f4f8da9d.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=c7905e76352656b9e9024361e06a9811",
+        "category": "BRC Kids Meal",
+        "price": "$6.49",
+        "calories": "440-910 Calories",
+        "description": "Our soft flour tortilla filled with rice, pinto beans and shredded jac..."
+      },
+      {
+        "id" : "16",
+        "name": "Drinks",
+        "quantity": "(1-3 of 3)",
+        "ember-view href": "https://order.elpolloloco.com/menu/lmu-investments-llc-dba-el-pollo-loco-3898/categories/11483_204061",
+        "image": "https://olo-images-live.imgix.net/25/250b35cd407b4d1ca16560ee905ef78a.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=f8e810555acf3015b276b447774aa3aa",
+        "category": "Large Drink",
+  
+        "price": "$2.59",
+        "calories": "0-310 Calories",
+        "description": "The flavoured Soft Drinks"
+      },
+      {
+        "id" : "17  ",
+        "name": "Catering",
+        "quantity": "(1-4 of 28)",
+        "image": "https://olo-images-live.imgix.net/cf/cfbb5fbb66924cc4831a7bc3fc54daf4.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=67721cbeec782ce5ce539cbb8795bf6e",
+        "category": "24 Piece Meal",
+        "price": "$2.99",
+        "calories": "610-1270 Calories",
+        "description": "Serves 10 - 12 people. Includes: 2 x-large side dishes, warm flour or ..."
+      }
+    ]
+  }
+  
