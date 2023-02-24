@@ -1,50 +1,38 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useReducer, useState } from "react";
-// import { PropsWithChildren, Fragment } from 'react';
-// import {
-//   chakra,
-//   Box,
-//   Stack,
-//   VStack,
-//   HStack,
-//   Flex,
-//   Text,
-//   Image,
-//   Container,
-//   Icon,
-//   StackProps
-// } from '@chakra-ui/react';
-
+import { PropsWithChildren, Fragment } from "react";
+import Footer from "../Components/Footer"
+import ProductCard from "../Components/ProductCard";
 import {
   chakra,
   Box,
   Stack,
+  VStack,
+  HStack,
+  Flex,
   Text,
   Image,
   Container,
-  Button,
-  ButtonProps,
-  useColorModeValue,
-  Wrap,
+  Icon,
+  StackProps,
   Grid,
-  Center,
-  Flex,
+  SimpleGrid,
+  Button,
 } from "@chakra-ui/react";
+// Here we have used react-icons package for the icons
+import { AiOutlineHeart, AiOutlineExclamationCircle } from "react-icons/ai";
 import { BsFillCartFill } from "react-icons/bs";
-import { PropsWithChildren } from "react";
-
-// // Here we have used react-icons package for the icons
-// import { AiOutlineHeart, AiOutlineExclamationCircle } from 'react-icons/ai';
-// import { BsFillCartFill } from 'react-icons/bs';
 import SplitWithImage from "../Tempelates/SplitWithImage";
-// // import Sidebar from "../Components/Sidebar"
+import Second from "../Tempelates/Second"
 
 const initialState = {
   data: [],
   isLoading: false,
   error: null,
 };
+
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -73,35 +61,28 @@ const reducer = (state, action) => {
       throw new Error();
   }
 };
-const CustomButton = ({ children, ...props }) => {
-  return (
-    <Button
-      textTransform="uppercase"
-      lineHeight="inherit"
-      rounded="md"
-      {...props}
-    >
-      {children}
-    </Button>
-  );
-};
 
-const Products = () => {
+const Index = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { data, isLoading, error } = state;
   const [order, setOrder] = useState("");
   const [filter, setFilter] = useState(null);
+  const [page, setPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
+  const limit = 6;
   const getData = () => {
     dispatch({ type: "Request" });
 
     axios
-      .get(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/foods`, {
-        params: {
-          _sort: "price",
-          _order: order,
-          q: filter,
-        },
-      })
+      .get(
+        `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/foods?_page=${page}&_limit=${limit}`,
+        {
+          params: {
+            _sort: "price",
+            _order: order,
+          },
+        }
+      )
       .then((res) => {
         dispatch({ type: "Sucess", payload: res.data });
         console.log(res.data);
@@ -113,7 +94,7 @@ const Products = () => {
 
   useEffect(() => {
     getData();
-  }, [filter]);
+  }, [page]);
 
   useEffect(() => {
     if (order) {
@@ -130,58 +111,57 @@ const Products = () => {
     }
   }, [order]);
 
-
   return (
-    
-    
+    <Box ml={{ base: 0, md: 60 }} p="0">
+      <SplitWithImage key={Date.now} />
+      <SimpleGrid spacing={4} columns={[1, 1, 2]}>
+        {data.map((e) => (
+          <ProductCard
+           id = {e.id}
+           image = {e.image}
+           category = {e.category}
+           price = {e.price}
+           description = {e.description}
+           calories = {e.calories}
+           name = {e.name}
+          />
+        ))}
+      </SimpleGrid>
 
-    <Grid pl={"20%"} templateColumns={"repeat(2,1fr)"}>
-      
-      {data.map((el, i) => (
-        <Box
-          borderWidth="1px"
-          _hover={{ shadow: "lg" }}
-          rounded="md"
-          overflow="hidden"
-          key={el.id}
-          textAlign={"center"}
-         mt={2}
-         
-        >
-          <Image align={"center"}  src={el.image} objectFit="cover"  />
-          <Box p={{ base: 3, sm: 5 }}>
-            <Box mb={6}>
-              <chakra.h3
-                fontSize={{ base: "lg", sm: "2xl" }}
-                fontWeight="bold"
-                lineHeight="1.2"
-                mb={2}
-              >
-                {el.name}
-              </chakra.h3>
-              <Text fontSize={{ base: "md", sm: "lg" }} noOfLines={2} textAlign={"center"}>
-                {el.description}
-              </Text>
-              <CustomButton>{el.category}</CustomButton>
-            </Box>
-            <Stack
-              justify="space-evenly"
-              direction={{ base: "column", sm: "row" }}
-              spacing={{ base: 2, sm: 0 }}
-            >
-              <CustomButton variant="outline">{el.price}</CustomButton>
+    <br />
 
-              <CustomButton colorScheme="teal" variant="solid">
-                <BsFillCartFill />
-                ..Buy Now
-              </CustomButton>
-            </Stack>
-          </Box>
-        </Box>
-      ))}
-    </Grid>
-
+      <Box>
+        <Button isDisabled={page === 1} onClick={() => setPage(page - 1)}>
+          Pre
+        </Button>
+        <Button>{page}</Button>
+        <Button  onClick={() => setPage(page + 1)}>
+          Next
+        </Button>
+        <Button onClick={() => setPage(1)}>Reset</Button>
+      </Box>
+      <Second/>
+      <Footer/>
+    </Box>
   );
 };
 
-export default Products;
+const IconButton = ({ children, ...props }) => {
+  return (
+    <HStack
+      cursor="pointer"
+      border="1px solid"
+      borderColor="gray.300"
+      px={2}
+      py="0.15rem"
+      alignItems="center"
+      rounded="sm"
+      spacing={2}
+      {...props}
+    >
+      {children}
+    </HStack>
+  );
+};
+
+export default Index;

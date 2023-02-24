@@ -25,7 +25,7 @@ const ProductIntro = () => {
             textAlign="left"
             maxW={{ base: "100%", md: "480px" }}
           >
-            Find A Location
+           Why Are You Waiting....
           </Heading>
           <Text
             color={useColorModeValue("gray.700", "gray.400")}
@@ -35,9 +35,7 @@ const ProductIntro = () => {
             fontWeight="300"
             maxW={{ base: "100%", md: "470px" }}
           >
-            In the past four decades, El Pollo Loco has grown quite a bit. From
-            our first location on Alvarado Street in Los Angeles to over 480
-            restaurants across the United States.
+           Laughter is the best medicine and so is chicken Lollipop. Order From The restaurants nearby You and have a huge savings from our website.
           </Text>
           <HStack spacing={3}>
             <Button
@@ -47,7 +45,7 @@ const ProductIntro = () => {
               rounded="md"
               boxShadow="md"
             >
-             Find Location
+             Restaurants
             </Button>
             <Box
               border="1px solid"
@@ -93,7 +91,7 @@ const ProductIntro = () => {
             h="100%"
             minW={{ base: "auto", md: "30rem" }}
             objectFit="cover"
-            src="https://img.livestrong.com/630x/clsd/getty/28bc7f520e8f49e6b29fa3c7a3d59d80.jpg?type=webp"
+            src="https://www.cowboysindians.com/wp-content/uploads/bfi_thumb/ChickenLollipopsKevin-Marple-perlij1mk485ihi4d91ml03pzwdi48qtio79ppde28.jpg"
             rounded="md"
             fallback={<Skeleton />}
           />

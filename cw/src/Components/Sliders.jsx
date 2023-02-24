@@ -136,7 +136,7 @@ export default function Sliders() {
                 <Text fontSize={{ base: 'md', lg: 'lg' }} color="White" >
                   {card.text}
                 </Text>
-                <Button borderRadius={"5px"} width={"50%"} >{card.btnText}</Button>
+                <Button borderRadius={"5px"} width={"100%"}  >{card.btnText}</Button>
               </Stack>
             </Container>
           </Box>

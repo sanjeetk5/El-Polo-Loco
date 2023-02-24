@@ -1,8 +1,8 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useContext } from "react";
 import Sliders from "./Sliders";
 import Footer from "./Footer";
 import Slidercard from "./Slidercard";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import {
   IconButton,
   Avatar,
@@ -43,6 +43,7 @@ import {
   FiChevronDown,
  
 } from "react-icons/fi";
+import { AuthContext } from "../Context/AuthContext";
 
 import {  BsPersonCircle } from "react-icons/bs"
 import { IconType } from "react-icons";
@@ -54,11 +55,11 @@ import Picwithtext from "./Picwithtext";
 //   icon: IconType;
 // }
 const LinkItems = [
-  { name: "Home", icon: FiHome, path: "/" },
-  { name: "Our Food", icon: FiTrendingUp, path: "/product" },
-  { name: "Our Story", icon: FiCompass, path: "/story" },
-  { name: "Careers", icon: FiStar, path: "/career" },
-  { name: "Franchising", icon: FiSettings, path: "/franchising" },
+  { name: "Home", icon: FiHome, path: "/" , image: "https://www.elpolloloco.com/content/img/chicken-leg_1280.webp" },
+  { name: "Our Food", icon: FiTrendingUp, path: "/product" , image : "https://olo-images-live.imgix.net/25/250b35cd407b4d1ca16560ee905ef78a.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=f8e810555acf3015b276b447774aa3aa" },
+  { name: "Our Story", icon: FiCompass, path: "/story", image:"https://www.jotform.com/blog/wp-content/uploads/2018/07/photos-with-story-featured-15.jpg" },
+  { name: "Careers", icon: FiStar, path: "/career" , image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSG545aZz-C-PiQpj9SSJ0hDDVsfEaNTmYTw&usqp=CAU" },
+  
 ];
 
 // const NavLink = ({ children }) => (
@@ -77,6 +78,7 @@ const LinkItems = [
 // );
 
 export default function SidebarWithHeader({ children }) {
+  
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box bg={useColorModeValue("gray.100", "gray.900")}>
@@ -132,7 +134,10 @@ const SidebarContent = ({ onClose, ...rest }) => {
       </Flex>
       {LinkItems.map((e) => (
         <RouterLink key={e.path} to={e.path}>
+        
+        
           <Heading key={e.path}>{e.name}</Heading>
+        
         </RouterLink>
       ))}
     </Box>
@@ -183,7 +188,23 @@ const NavItem = ({ icon, children, ...rest }) => {
 //   onOpen: () => void;
 // }
 const MobileNav = ({ onOpen, ...rest }) => {
+  const {isAuth ,  setIsAuth} = useContext(AuthContext) 
   const { colorMode, toggleColorMode } = useColorMode();
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/product`; 
+    
+    navigate(path);
+    
+  }
+
+
+  const sign = () => {
+    let signup =  `/login`
+    navigate(signup)
+  }
+
+  
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -223,44 +244,10 @@ const MobileNav = ({ onOpen, ...rest }) => {
           {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
         </Button>
 
-        <Button>Order Now</Button>
-        <Flex alignItems={"center"}>
-          <Menu>
-            <MenuButton
-              py={2}
-              transition="all 0.3s"
-              _focus={{ boxShadow: "none" }}
-            >
-              <HStack>
-              <BsPersonCircle/>
-                <VStack
-                  display={{ base: "none", md: "flex" }}
-                  alignItems="flex-start"
-                  spacing="1px"
-                  ml="2"
-                >
-                  <Text fontSize="sm">Justina Clark</Text>
-                  <Text fontSize="xs" color="gray.600">
-                    Admin
-                  </Text>
-                </VStack>
-                <Box display={{ base: "none", md: "flex" }}>
-                  <FiChevronDown />
-                </Box>
-              </HStack>
-            </MenuButton>
-            <MenuList
-              bg={useColorModeValue("white", "gray.900")}
-              borderColor={useColorModeValue("gray.200", "gray.700")}
-            >
-              <MenuItem>Profile</MenuItem>
-              <MenuItem>Settings</MenuItem>
-              <MenuItem>Billing</MenuItem>
-              <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
-            </MenuList>
-          </Menu>
-        </Flex>
+        <Button colorScheme='linkedin'  onClick={routeChange} backgroundColor={"red.800"} color={"white"} >Order Now</Button>
+       
+     
+        {isAuth ? <Button colorScheme='linkedin' backgroundColor={"red.800"} onClick={()=>{setIsAuth(false); navigate("/") }}>Signout</Button> : <Button onClick={ sign  }>Sign In</Button>}
       </HStack>
     </Flex>
   );
