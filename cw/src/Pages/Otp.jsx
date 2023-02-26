@@ -17,11 +17,24 @@ import {
   Center,
   Box,
   Text,
-  Grid
+  Grid, useToast,
 } from "@chakra-ui/react";
 import Footer from "../Components/Footer"
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 const SplitWithImage = () => {
+
+
+  const toast = useToast();
+
+  const a = () => {
+    toast({
+      title: "Payment Succesfull.. Your Order Will Be delievered in 30 minutes",
+      status: "success",
+      duration: 2000,
+      isClosable: true,
+    });
+  };
   return (
     <Box ml={{ base: 0, md: 60 }} p="0">
 
@@ -84,6 +97,7 @@ const SplitWithImage = () => {
                   Resend Otp
                 </Link>
               </Stack>
+              <RouterLink to = "/product" >
               <Button
                 bg="green.300"
                 color="white"
@@ -92,9 +106,11 @@ const SplitWithImage = () => {
                 }}
                 rounded="md"
                 w="100%"
+                onClick={()=> a() }
               >
                 Confirm
               </Button>
+              </RouterLink>
             </VStack>
           </VStack>
         </Stack>
