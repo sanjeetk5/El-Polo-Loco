@@ -12,7 +12,7 @@ const Home = () => {
         <Image src="https://www.elpolloloco.com/content/img/chicken-leg_1280.webp"  />
         </div>
         
-        <div style={{marginTop:"5px"}}>
+        <div style={{marginTop:"5px" , width: "98%" } }>
         <Slidercard />
         </div>
         <div >

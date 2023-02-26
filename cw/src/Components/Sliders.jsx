@@ -7,12 +7,15 @@ import {
   Heading,
   Text,
   Container,
-  Button
+  Button,
+  Center
 } from '@chakra-ui/react';
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+
 
 // Settings for the slider
 const settings = {
@@ -26,6 +29,7 @@ const settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
 };
+
 
 export default function Sliders() {
   // As we have used custom buttons, we need a reference variable to
@@ -136,7 +140,14 @@ export default function Sliders() {
                 <Text fontSize={{ base: 'md', lg: 'lg' }} color="White" >
                   {card.text}
                 </Text>
-                <Button borderRadius={"5px"} width={"100%"}  >{card.btnText}</Button>
+                <RouterLink to="/product">
+                <Center>
+                  
+                  <Button borderRadius={"5px"} width={"50%"}  >{card.btnText}</Button>
+                 
+               
+                </Center>
+                </RouterLink>
               </Stack>
             </Container>
           </Box>

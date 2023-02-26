@@ -15,7 +15,7 @@ import {
 
 const ProductIntro = () => {
   return (
-    <Container maxW="5xl" px={{ base: 6, md: 3 }} py={10}>
+    <Container maxW="5xl" px={{ base: 6, md: 6 }} py={10}>
       <Stack direction={{ base: "column-reverse", md: "row" }}>
         <Stack direction="column" spacing={6}>
           <Heading
@@ -91,7 +91,7 @@ const ProductIntro = () => {
           <Image
             w="100%"
             h="100%"
-            minW={{ base: "auto", md: "30rem" }}
+            minW={{ base: "auto", md: "20rem" }}
             objectFit="cover"
             src="https://img.livestrong.com/630x/clsd/getty/28bc7f520e8f49e6b29fa3c7a3d59d80.jpg?type=webp"
             rounded="md"

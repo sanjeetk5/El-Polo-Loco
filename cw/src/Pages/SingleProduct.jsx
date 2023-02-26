@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Footer from "../Components/Footer"
 
 //   const { id } = useParams();
 //   const [data, setData] = useState([]);
@@ -45,6 +46,7 @@ import {
   VisuallyHidden,
   List,
   ListItem,
+  useToast,
 } from "@chakra-ui/react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
@@ -53,9 +55,19 @@ export default function SingleProduct() {
   const { id } = useParams();
   const [data, setData] = useState([]);
   console.log(id);
+  const toast = useToast()
+
+  const a = () => {
+    toast({
+      title: "Item Added To Cart",
+      status: "success",
+      duration : 2000,
+      isClosable: true,
+    });
+  }
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/foods/${id}`).then((res) => {
+    axios.get(`https://json-server-example-ma0w.onrender.com/foods/${id}`).then((res) => {
       console.log(res);
       setData(res.data);
     });
@@ -67,19 +79,19 @@ export default function SingleProduct() {
     try {
       return axios({
         method: "post",
-        url: `http://localhost:8080/cart`,
+        url: `https://json-server-example-ma0w.onrender.com/cart`,
         data: {
           ...data,
           "Quantity": 1,
         },
-      }).then((res) => console.log(res.data));
+      }).then((res) => console.log(res.data) , a());
     } catch (error) {
       console.log("err");
     }
   };
 
   return (
-    <Container maxW={"7xl"}>
+    <Container maxW={"10xl"}>
       <SimpleGrid
         columns={{ base: 1, lg: 2 }}
         spacing={{ base: 8, md: 10 }}
@@ -214,7 +226,12 @@ export default function SingleProduct() {
             <Text>Delivery Within 30 Minutes</Text>
           </Stack>
         </Stack>
+       
       </SimpleGrid>
+       <Box>
+        <Footer/>
+       </Box>
     </Container>
+    
   );
 }

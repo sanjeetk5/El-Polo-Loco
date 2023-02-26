@@ -29,7 +29,7 @@ export default class Responsive extends Component {
           }
         },
         {
-          breakpoint: 480,
+          breakpoint: 420,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1

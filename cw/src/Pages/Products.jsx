@@ -21,8 +21,8 @@ import {
   Button,
 } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
-import { AiOutlineHeart, AiOutlineExclamationCircle } from "react-icons/ai";
-import { BsFillCartFill } from "react-icons/bs";
+// import { AiOutlineHeart, AiOutlineExclamationCircle } from "react-icons/ai";
+// import { BsFillCartFill } from "react-icons/bs";
 import SplitWithImage from "../Tempelates/SplitWithImage";
 import Second from "../Tempelates/Second"
 
@@ -66,16 +66,16 @@ const Index = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { data, isLoading, error } = state;
   const [order, setOrder] = useState("");
-  const [filter, setFilter] = useState(null);
+  
   const [page, setPage] = useState(1);
-  const [lastPage, setLastPage] = useState(1);
+
   const limit = 6;
   const getData = () => {
     dispatch({ type: "Request" });
 
     axios
       .get(
-        `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/foods?_page=${page}&_limit=${limit}`,
+        `https://json-server-example-ma0w.onrender.com/foods?_page=${page}&_limit=${limit}`,
         {
           params: {
             _sort: "price",
